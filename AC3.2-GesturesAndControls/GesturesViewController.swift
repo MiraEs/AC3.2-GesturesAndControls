@@ -29,9 +29,10 @@ class GesturesViewController: UIViewController {
         }
     }
     
+    
+    
     @IBOutlet weak var actionToPerformLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
-    
     @IBOutlet var rightSwipeGestureRecognizer: UISwipeGestureRecognizer!
     @IBOutlet var leftSwipeGestureRecognizer: UISwipeGestureRecognizer!
     @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
@@ -128,7 +129,7 @@ class GesturesViewController: UIViewController {
             self.currentScore += 1
         }
         else {
-            self.view.backgroundColor = UIColor.gray
+            self.view.backgroundColor = UIColor(red: CGFloat(self.correctColorValue), green: CGFloat(self.correctColorValueTwo), blue: CGFloat(self.correctColorValueThree), alpha: 1.0)
             self.currentScore = 0
         }
     }

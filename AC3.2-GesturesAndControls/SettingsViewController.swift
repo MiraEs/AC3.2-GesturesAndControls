@@ -14,6 +14,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var colorSliderBlue: UISlider!
     @IBOutlet weak var colorSliderGreen: UISlider!
     @IBOutlet weak var colorBar: UIImageView!
+    @IBOutlet weak var numOfTries: UIStepper!
+    @IBOutlet weak var triesLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +30,21 @@ class SettingsViewController: UIViewController {
 
     }
   
+    @IBAction func rightAndWrongColors(_ sender: UISegmentedControl) {
+        let index = sender.selectedSegmentIndex
+        if index == 0 {
+                  self.colorBar.backgroundColor = UIColor(red: CGFloat(colorSlider.value), green: CGFloat(colorSliderGreen.value), blue: CGFloat(colorSliderBlue.value), alpha: 1.0)
+        }
+        if index == 1 {
+            self.colorBar.backgroundColor = UIColor(red: CGFloat(colorSlider.value), green: CGFloat(colorSliderGreen.value), blue: CGFloat(colorSliderBlue.value), alpha: 1.0)
+        }
+        
+    }
 
     
+    @IBAction func numOfTries(_ sender: UIStepper) {
+        triesLabel.text = "Number of Tries: \(Int(sender.value))"
+    }
     // MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -41,6 +56,8 @@ class SettingsViewController: UIViewController {
          self.colorBar.backgroundColor = UIColor(red: CGFloat(colorSlider.value), green: CGFloat(colorSliderGreen.value), blue: CGFloat(colorSliderBlue.value), alpha: 1.0)
  
     }
+    
+
     
     
 }

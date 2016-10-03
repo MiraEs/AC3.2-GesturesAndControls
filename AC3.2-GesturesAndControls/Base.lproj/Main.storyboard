@@ -61,6 +61,9 @@
                                     <segment title="Right"/>
                                     <segment title="Wrong"/>
                                 </segments>
+                                <connections>
+                                    <action selector="rightAndWrongColors:" destination="J2o-vC-hGA" eventType="valueChanged" id="BZJ-6r-7yg"/>
+                                </connections>
                             </segmentedControl>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="msy-a6-gCV"/>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cW5-bx-jms">
@@ -74,6 +77,16 @@
                                     <action selector="colorUpdate:" destination="J2o-vC-hGA" eventType="valueChanged" id="nXD-c2-Zru"/>
                                 </connections>
                             </slider>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="gKR-Gk-NfB">
+                                <connections>
+                                    <action selector="numOfTries:" destination="J2o-vC-hGA" eventType="valueChanged" id="cSW-LR-ODz"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Tries" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8T-lF-Q55">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.8518490621375493" blue="0.93824774966654123" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -83,6 +96,8 @@
                             <constraint firstItem="PLK-U2-Ng3" firstAttribute="top" secondItem="bRS-eF-hra" secondAttribute="bottom" constant="19" id="4vY-ZG-y3z"/>
                             <constraint firstItem="msy-a6-gCV" firstAttribute="centerY" secondItem="sg5-M7-GFO" secondAttribute="centerY" id="8et-ov-P0m"/>
                             <constraint firstItem="PC1-4E-wKl" firstAttribute="centerX" secondItem="Tbd-3B-6hV" secondAttribute="centerX" id="DbR-za-Ech"/>
+                            <constraint firstItem="gKR-Gk-NfB" firstAttribute="centerX" secondItem="msy-a6-gCV" secondAttribute="centerX" id="IqX-PN-ozz"/>
+                            <constraint firstItem="N8T-lF-Q55" firstAttribute="top" secondItem="gKR-Gk-NfB" secondAttribute="bottom" constant="16" id="JPV-5l-lnL"/>
                             <constraint firstItem="bRS-eF-hra" firstAttribute="trailing" secondItem="sg5-M7-GFO" secondAttribute="trailingMargin" id="JiU-ag-OY9"/>
                             <constraint firstItem="lmR-o1-6p0" firstAttribute="top" secondItem="tIF-Oo-dAZ" secondAttribute="bottom" constant="8" symbolic="YES" id="KeA-4I-TzA"/>
                             <constraint firstItem="PLK-U2-Ng3" firstAttribute="centerX" secondItem="cW5-bx-jms" secondAttribute="centerX" id="PLY-u4-WNB"/>
@@ -96,6 +111,8 @@
                             <constraint firstItem="lmR-o1-6p0" firstAttribute="centerX" secondItem="bRS-eF-hra" secondAttribute="centerX" id="l61-yt-Y3p"/>
                             <constraint firstItem="PC1-4E-wKl" firstAttribute="top" secondItem="PLK-U2-Ng3" secondAttribute="bottom" constant="19" id="out-6C-OI0"/>
                             <constraint firstItem="bRS-eF-hra" firstAttribute="trailing" secondItem="PC1-4E-wKl" secondAttribute="trailing" id="zMZ-oX-cgT"/>
+                            <constraint firstItem="gKR-Gk-NfB" firstAttribute="top" secondItem="msy-a6-gCV" secondAttribute="bottom" constant="64" id="zjC-vT-Duh"/>
+                            <constraint firstItem="N8T-lF-Q55" firstAttribute="centerX" secondItem="gKR-Gk-NfB" secondAttribute="centerX" id="znn-Sg-iGj"/>
                         </constraints>
                     </view>
                     <connections>
@@ -103,6 +120,8 @@
                         <outlet property="colorSlider" destination="bRS-eF-hra" id="YJV-a1-guJ"/>
                         <outlet property="colorSliderBlue" destination="PLK-U2-Ng3" id="qCP-Og-q7p"/>
                         <outlet property="colorSliderGreen" destination="PC1-4E-wKl" id="kpw-ct-kec"/>
+                        <outlet property="numOfTries" destination="gKR-Gk-NfB" id="hQC-df-qkI"/>
+                        <outlet property="triesLabel" destination="N8T-lF-Q55" id="Gen-TS-Al3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDL-y3-bUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
