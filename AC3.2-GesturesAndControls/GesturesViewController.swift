@@ -10,6 +10,8 @@ import UIKit
 
 class GesturesViewController: UIViewController {
     var correctColorValue = 0.0
+    var correctColorValueTwo = 0.0
+    var correctColorValueThree = 0.0
     
     enum ActionGesture: Int {
         case tap, doubleTap, twoFingerTap, leftSwipe, rightSwipe
@@ -65,31 +67,7 @@ class GesturesViewController: UIViewController {
         return ActionGesture(rawValue: randomInt) ?? .tap
     }
     
-    // MARK: - Actions
-//    @IBAction func didTapView(_ sender: UITapGestureRecognizer) {
-//        print("I was tapped")
-//        self.isCorrect(self.currentActionGesture == .tap)
-//    }
-//    
-//    @IBAction func swipedLeft(_ sender: UISwipeGestureRecognizer) {
-//        print("Swiped left")
-//        self.isCorrect(self.currentActionGesture == .leftSwipe)
-//    }
-//    
-//    @IBAction func swipedRight(_ sender: UISwipeGestureRecognizer) {
-//        print("Swiped right")
-//        self.isCorrect(self.currentActionGesture == .rightSwipe)
-//    }
-//    
-//    @IBAction func didDoubleTapView(_ sender: UITapGestureRecognizer) {
-//        print("Did double tap view")
-//        self.isCorrect(self.currentActionGesture == .doubleTap)
-//    }
-//    
-//    @IBAction func didTwoFingerTapView(_ sender: UITapGestureRecognizer) {
-//        print("Did two finger tap view")
-//        self.isCorrect(self.currentActionGesture == .twoFingerTap)
-//    }
+    //MARK: Actions
     
     @IBAction func didPerformGesture(_ sender: UIGestureRecognizer) {
         if let tapGesture: UITapGestureRecognizer = sender as? UITapGestureRecognizer {
@@ -137,15 +115,20 @@ class GesturesViewController: UIViewController {
         
         if correct {
             // use the "correctColorValue" to manipulate the red component of a color
-            self.view.backgroundColor = UIColor(red: CGFloat(self.correctColorValue), green: 1.0, blue: 1.0, alpha: 1.0)
+            self.view.backgroundColor = UIColor(red: CGFloat(self.correctColorValue), green: CGFloat(self.correctColorValueTwo), blue: CGFloat(self.correctColorValueThree), alpha: 1.0)
+    
+            /*
+              self.view.backgroundColor = UIColor(red: 0.0, green: CGFloat(self.correctColorValueGreen), blue: 0.0, alpha: 1.0)
+            */
             
+            /*self.view.backgroundColor = UIColor(hue: <#T##CGFloat#>, saturation: <#T##CGFloat#>, brightness: <#T##CGFloat#>, alpha: <#T##CGFloat#>)*/
             // alternatively we can change the hue using this initializer of UIColor
             // self.view.backgroundColor = UIColor(hue: CGFloat(Float(self.correctColorValue)), saturation: 1.0, brightness: 1.0, alpha: 1.0)
 
             self.currentScore += 1
         }
         else {
-            self.view.backgroundColor = UIColor.red
+            self.view.backgroundColor = UIColor.gray
             self.currentScore = 0
         }
     }

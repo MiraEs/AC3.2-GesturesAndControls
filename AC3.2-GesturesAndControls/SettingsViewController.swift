@@ -11,25 +11,36 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var colorSlider: UISlider!
+    @IBOutlet weak var colorSliderBlue: UISlider!
+    @IBOutlet weak var colorSliderGreen: UISlider!
+    @IBOutlet weak var colorBar: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.colorBar.backgroundColor = UIColor(red: CGFloat(colorSlider.value), green: CGFloat(colorSliderGreen.value), blue: CGFloat(colorSliderBlue.value), alpha: 1.0)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+ 
+    // MARK: - Functions
+    
+    @IBAction func colorUpdate(_ sender: UISlider) {
+        self.colorBar.backgroundColor = UIColor(red: CGFloat(colorSlider.value), green: CGFloat(colorSliderGreen.value), blue: CGFloat(colorSliderBlue.value), alpha: 1.0)
+
+    }
+  
+
+    
+    // MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let gvc = segue.destination as? GesturesViewController, let hvc = segue.destination as? GesturesViewController, let ivc = segue.destination as? GesturesViewController  {
+            gvc.correctColorValue = Double(colorSlider.value)
+            hvc.correctColorValueTwo = Double(colorSliderGreen.value)
+            ivc.correctColorValueThree = Double(colorSliderBlue.value)
+        }
+         self.colorBar.backgroundColor = UIColor(red: CGFloat(colorSlider.value), green: CGFloat(colorSliderGreen.value), blue: CGFloat(colorSliderBlue.value), alpha: 1.0)
+ 
     }
     
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let gvc = segue.destination as? GesturesViewController {
-            gvc.correctColorValue = Double(colorSlider.value)
-        }
-    }
+    
 }

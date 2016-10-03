@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="l5U-51-TFZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="l5U-51-TFZ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -29,7 +29,7 @@
                         <viewControllerLayoutGuide type="bottom" id="pSF-sI-wKO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sg5-M7-GFO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbd-3B-6hV">
@@ -41,24 +41,73 @@
                                     <segue destination="ogV-KT-dEg" kind="showDetail" id="EOd-KY-yXj"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bRS-eF-hra"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PLK-U2-Ng3">
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="colorUpdate:" destination="J2o-vC-hGA" eventType="valueChanged" id="Og9-Ia-5aM"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PC1-4E-wKl">
+                                <color key="tintColor" red="0.21763951100000001" green="0.88835487570000005" blue="0.33454700780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="colorUpdate:" destination="J2o-vC-hGA" eventType="valueChanged" id="aVN-XP-tQ6"/>
+                                </connections>
+                            </slider>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lmR-o1-6p0">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="7BT-zc-nmg"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Right"/>
+                                    <segment title="Wrong"/>
+                                </segments>
+                            </segmentedControl>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="msy-a6-gCV"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cW5-bx-jms">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="5yq-LL-dFp"/>
+                                </constraints>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bRS-eF-hra">
+                                <color key="tintColor" red="0.90975856781005859" green="0.07296760425598825" blue="0.1351460798482351" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="colorUpdate:" destination="J2o-vC-hGA" eventType="valueChanged" id="nXD-c2-Zru"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.8518490621375493" blue="0.93824774966654123" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="bRS-eF-hra" firstAttribute="centerX" secondItem="Tbd-3B-6hV" secondAttribute="centerX" id="0Ij-76-7ga"/>
-                            <constraint firstItem="bRS-eF-hra" firstAttribute="trailing" secondItem="sg5-M7-GFO" secondAttribute="trailingMargin" id="EDE-Co-nFD"/>
+                            <constraint firstItem="msy-a6-gCV" firstAttribute="top" secondItem="cW5-bx-jms" secondAttribute="bottom" constant="50" id="0IB-Lg-vEc"/>
+                            <constraint firstItem="PLK-U2-Ng3" firstAttribute="leading" secondItem="sg5-M7-GFO" secondAttribute="leadingMargin" constant="-1" id="29Q-Kx-hMF"/>
+                            <constraint firstItem="cW5-bx-jms" firstAttribute="centerX" secondItem="msy-a6-gCV" secondAttribute="centerX" id="4OB-4F-yse"/>
+                            <constraint firstItem="PLK-U2-Ng3" firstAttribute="top" secondItem="bRS-eF-hra" secondAttribute="bottom" constant="19" id="4vY-ZG-y3z"/>
+                            <constraint firstItem="msy-a6-gCV" firstAttribute="centerY" secondItem="sg5-M7-GFO" secondAttribute="centerY" id="8et-ov-P0m"/>
+                            <constraint firstItem="PC1-4E-wKl" firstAttribute="centerX" secondItem="Tbd-3B-6hV" secondAttribute="centerX" id="DbR-za-Ech"/>
+                            <constraint firstItem="bRS-eF-hra" firstAttribute="trailing" secondItem="sg5-M7-GFO" secondAttribute="trailingMargin" id="JiU-ag-OY9"/>
+                            <constraint firstItem="lmR-o1-6p0" firstAttribute="top" secondItem="tIF-Oo-dAZ" secondAttribute="bottom" constant="8" symbolic="YES" id="KeA-4I-TzA"/>
+                            <constraint firstItem="PLK-U2-Ng3" firstAttribute="centerX" secondItem="cW5-bx-jms" secondAttribute="centerX" id="PLY-u4-WNB"/>
                             <constraint firstAttribute="bottom" secondItem="Tbd-3B-6hV" secondAttribute="bottom" constant="20" symbolic="YES" id="Rqb-ai-bf7"/>
-                            <constraint firstItem="bRS-eF-hra" firstAttribute="leading" secondItem="sg5-M7-GFO" secondAttribute="leadingMargin" id="RwN-cp-DAw"/>
-                            <constraint firstItem="bRS-eF-hra" firstAttribute="top" secondItem="tIF-Oo-dAZ" secondAttribute="bottom" constant="8" symbolic="YES" id="hMh-M7-Mzv"/>
+                            <constraint firstItem="bRS-eF-hra" firstAttribute="leading" secondItem="PC1-4E-wKl" secondAttribute="leading" id="SvW-d3-3eP"/>
+                            <constraint firstItem="bRS-eF-hra" firstAttribute="top" secondItem="lmR-o1-6p0" secondAttribute="bottom" constant="40" id="bVe-no-Uya"/>
+                            <constraint firstItem="cW5-bx-jms" firstAttribute="leading" secondItem="sg5-M7-GFO" secondAttribute="leadingMargin" constant="36" id="bgP-hQ-e8W"/>
+                            <constraint firstItem="bRS-eF-hra" firstAttribute="leading" secondItem="sg5-M7-GFO" secondAttribute="leadingMargin" id="dun-Yf-gfu"/>
+                            <constraint firstItem="cW5-bx-jms" firstAttribute="top" secondItem="PC1-4E-wKl" secondAttribute="bottom" constant="8" symbolic="YES" id="huy-3o-0KB"/>
+                            <constraint firstItem="msy-a6-gCV" firstAttribute="trailing" secondItem="Tbd-3B-6hV" secondAttribute="trailing" id="icU-Uw-6Lm"/>
+                            <constraint firstItem="lmR-o1-6p0" firstAttribute="centerX" secondItem="bRS-eF-hra" secondAttribute="centerX" id="l61-yt-Y3p"/>
+                            <constraint firstItem="PC1-4E-wKl" firstAttribute="top" secondItem="PLK-U2-Ng3" secondAttribute="bottom" constant="19" id="out-6C-OI0"/>
+                            <constraint firstItem="bRS-eF-hra" firstAttribute="trailing" secondItem="PC1-4E-wKl" secondAttribute="trailing" id="zMZ-oX-cgT"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="colorBar" destination="cW5-bx-jms" id="acx-nQ-cBn"/>
                         <outlet property="colorSlider" destination="bRS-eF-hra" id="YJV-a1-guJ"/>
+                        <outlet property="colorSliderBlue" destination="PLK-U2-Ng3" id="qCP-Og-q7p"/>
+                        <outlet property="colorSliderGreen" destination="PC1-4E-wKl" id="kpw-ct-kec"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDL-y3-bUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="123.63281249999999" y="-586.71875"/>
+            <point key="canvasLocation" x="122.40000000000001" y="-586.95652173913049"/>
         </scene>
         <!--Gestures View Controller-->
         <scene sceneID="e9d-85-ClC">
@@ -69,7 +118,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1PH-j8-o3Z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="h3p-1U-ioM">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piS-iC-l1d" userLabel="Prompt">
